@@ -22,6 +22,7 @@
 - `CLAUDE.md`: Claude Code 入口规则。
 - `.github/copilot-instructions.md`: GitHub Copilot 规则。
 - `docs/workflow.md`: 开发工作流。
+- `docs/agent-setup.md`: 各 agent 配置和读取验证方法。
 - `docs/roles/`: 多 agent 角色说明。
 - `docs/tasks/`: 任务卡目录。
 - `docs/decisions/`: 架构决策记录目录。
@@ -37,4 +38,3 @@
 3. git 分支和 review 流程。
 4. 测试和 debug 方法。
 5. 多 agent 协作边界。
-
