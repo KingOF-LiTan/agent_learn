@@ -27,6 +27,8 @@
 6. 修改行为时优先补测试；如果暂时不补测试，必须说明原因。
 7. 如果发现需求超出当前任务范围，先停下来汇报，不要自行扩展。
 8. 不要在 `main` 上直接做复杂改动，使用任务分支或 worktree。
+9. 开始实现前先阅读 `docs/system-map.md`，优先从系统结构记录定位相关模块。
+10. 任务完成必须先经过 Debugger 或等价验证，再更新任务状态和系统结构记录。
 
 ## Explanation Requirement
 
@@ -96,6 +98,47 @@ main
 
 详细说明见 `docs/roles/`。
 
+## Completion Records
+
+每个任务完成后，必须更新对应的 `docs/tasks/<task-id>.md`。
+
+任务卡完成记录至少包含：
+
+```text
+Status:
+Completed Changes:
+Verification:
+Learning Notes:
+Follow-ups:
+```
+
+只有在 Debugger 验证通过，或用户明确接受等价验证后，任务状态才能标记为 `Done`。
+
+## System Map Requirement
+
+`docs/system-map.md` 是本项目的系统结构地图。它用于帮助 agent 快速定位模块，避免为了一个小任务全仓库乱搜。
+
+以下情况必须更新 `docs/system-map.md`：
+
+1. 新增或删除顶层目录。
+2. 新增核心模块。
+3. 改变模块职责。
+4. 改变模块之间的调用关系。
+5. 新增一类常见任务的入口位置。
+
+更新顺序：
+
+```text
+Implementer 完成实现
+  -> Debugger 运行验证
+  -> 验证通过
+  -> 更新任务卡
+  -> 如结构变化，更新 docs/system-map.md
+  -> Architect review
+```
+
+如果验证失败，不要把任务标记为完成，也不要提前更新系统结构为既成事实。
+
 ## Task Card Requirement
 
 每个开发任务最好先写成任务卡。任务卡至少包含：
@@ -111,6 +154,17 @@ main
 ```
 
 任务卡放在 `docs/tasks/`。
+
+## Progress Records
+
+`docs/progress/` 用于记录月度进展摘要。它不替代任务卡，只做高层索引。
+
+适合记录：
+
+1. 本月完成了哪些任务。
+2. 系统结构发生了哪些变化。
+3. 哪些设计决定值得回看。
+4. 下个月优先做什么。
 
 ## Architecture Decision Records
 
@@ -147,4 +201,3 @@ ADR 不需要长，但必须说明背景、选择、原因和代价。
 4. 本地验证失败且原因不明确。
 5. 当前任务和已有文档冲突。
 6. 发现未提交的用户改动会被覆盖。
-

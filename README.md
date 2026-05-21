@@ -23,9 +23,11 @@
 - `.github/copilot-instructions.md`: GitHub Copilot 规则。
 - `docs/workflow.md`: 开发工作流。
 - `docs/agent-setup.md`: 各 agent 配置和读取验证方法。
+- `docs/system-map.md`: 系统结构地图和模块入口。
 - `docs/roles/`: 多 agent 角色说明。
 - `docs/tasks/`: 任务卡目录。
 - `docs/decisions/`: 架构决策记录目录。
+- `docs/progress/`: 月度进展记录。
 
 ## Principle: Project-Driven Learning
 
